@@ -1,0 +1,79 @@
+:root {
+  --bg-color: #121217;
+  --text-color: #ffffff;
+  --hint-color: #707070;
+  --hint-color-alt: #a0a0a0;
+  --low-contrast-color: #2e2e2e;
+  --text-size: 16px;
+  --font-family-serif: "Newsreader", "Noto Serif SC", serif;
+  --font-family-sans-serif: "Inter", "Noto Serif SC", sans-serif;
+}
+
+::selection {
+  background: #2a2a2e;
+  color: var(--text-color);
+
+  a:hover{
+      text-decoration-color: var(--hint-color);
+  }
+}
+
+html,
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  padding: 0;
+  margin: 0;
+  line-height: 2;
+  font-family: var(--font-family-serif);
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--hint-color);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 1px;
+  transition: 160ms ease;
+
+  &.disabled {
+    text-decoration: none;
+    cursor: default;
+  }
+
+  &:hover {
+    text-decoration-color: var(--hint-color-alt);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// animation delay... generally bad idea?
+@for $i from 1 through 5 {
+  $delay: 150ms;
+
+  .anim-delay-#{$i} {
+    // sets delay for the .animated-fadeup class
+    --animation-delay: calc(#{$delay} * #{$i});
+  }
+}
+
+.animated-fadeup {
+  animation: fadeUp 0.6s forwards;
+  animation-delay: var(--animation-delay);
+  animation-fill-mode: both;
+}

@@ -1,0 +1,23 @@
+{
+  "last_name": "Jiang",
+  "first_name": "Mingjie",
+  "full_name": "Mingjie Jiang",
+  "greet": "Hey, I'm ",
+  "period": ".",
+  "mission": "Building inclusive & accessible CS exploration programs for everyone.",
+  "home_p1": [
+    "I am a software engineer currently gamifying education at ",
+    " while on leave from UC Berkeley computer science. I also cofounded ",
+    ", a nonprofit that runs creative programs for underrepresented students in tech."
+  ],
+  "home_p2": [
+    "Informal education",
+    " changed my life, and I'm excited about a future where students can learn by themselves and from each other."
+  ],
+  "now_playing_ts": ["I listen to Taylor Swift a lot. In fact, my most recently played song is ", "."],
+  "now_playing": [
+    "My most recently played song is ",
+    " by ",
+    ". But rest assured: I still listen to Taylor Swift a lot."
+  ]
+}
