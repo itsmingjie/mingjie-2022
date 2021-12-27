@@ -2,7 +2,6 @@ lockfileVersion: 5.3
 
 specifiers:
   '@babel/preset-env': ^7.16.5
-  '@styled-icons/ionicons-solid': ^10.34.0
   babel-jest: ^27.4.5
   eslint: 8.5.0
   eslint-config-next: 12.0.7
@@ -16,7 +15,6 @@ specifiers:
   styled-components: ^5.3.3
 
 dependencies:
-  '@styled-icons/ionicons-solid': 10.34.0_c17876e09d792e0c7b0f44e49f814625
   next: 12.0.7_f974e9ff7578644a22f9bc9f9222c405
   next-i18next: 10.0.1_next@12.0.7+react@17.0.2
   prop-types: 15.7.2
@@ -1745,30 +1743,6 @@ packages:
     dependencies:
       '@sinonjs/commons': 1.8.3
     dev: true
-
-  /@styled-icons/ionicons-solid/10.34.0_c17876e09d792e0c7b0f44e49f814625:
-    resolution: {integrity: sha512-gp85y8VbxhBUx0xP3eokyxIkAiWkSaJO3kN1/mGfCSKcWllLBhoHikyGjWAxFPMunhzix4PM0tVudWrsSxmLeQ==}
-    peerDependencies:
-      react: '*'
-      styled-components: '*'
-    dependencies:
-      '@babel/runtime': 7.16.5
-      '@styled-icons/styled-icon': 10.6.3_c17876e09d792e0c7b0f44e49f814625
-      react: 17.0.2
-      styled-components: 5.3.3_react-dom@17.0.2+react@17.0.2
-    dev: false
-
-  /@styled-icons/styled-icon/10.6.3_c17876e09d792e0c7b0f44e49f814625:
-    resolution: {integrity: sha512-/A95L3peioLoWFiy+/eKRhoQ9r/oRrN/qzbSX4hXU1nGP2rUXcX3LWUhoBNAOp9Rw38ucc/4ralY427UUNtcGQ==}
-    peerDependencies:
-      react: '*'
-      styled-components: '>=4.1.0 <6'
-    dependencies:
-      '@babel/runtime': 7.16.5
-      '@emotion/is-prop-valid': 0.8.8
-      react: 17.0.2
-      styled-components: 5.3.3_react-dom@17.0.2+react@17.0.2
-    dev: false
 
   /@tootallnate/once/1.1.2:
     resolution: {integrity: sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==}
