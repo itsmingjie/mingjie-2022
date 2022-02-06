@@ -49,7 +49,7 @@ const NowPlaying = () => {
         <>
           <svg
             role="status"
-            class="mt-3 w-5 h-5 text-pink animate-spin dark:text-pink fill-coral"
+            className="mt-3 w-5 h-5 text-pink animate-spin dark:text-pink fill-coral"
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
