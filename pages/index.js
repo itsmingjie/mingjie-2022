@@ -17,7 +17,7 @@ const NowPlaying = () => {
       );
       const lastfm_data = await lastfm_response.json();
       if (!lastfm_data.error) {
-        // setMusic(lastfm_data["recenttracks"]["track"][0]);
+        setMusic(lastfm_data["recenttracks"]["track"][0]);
       }
     }
 
@@ -102,8 +102,8 @@ const Home = () => {
               <div className="inline font-bold text-coral">Ender</div>
             </Link>
           </div>
-          &mdash; helping to build what I would've wanted in education for the
-          next generation of creative kids who love to build.
+          &mdash; helping to build what I would&rsquo;ve wanted in education for
+          the next generation of creative kids who love to build.
         </p>
         <NowPlaying />
         <p className="mt-3 text-hint-1 font-serif italic">
