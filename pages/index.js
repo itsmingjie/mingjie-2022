@@ -1,39 +1,12 @@
 import Head from "next/head";
-import styled from "styled-components";
 import { useState, useEffect } from "react";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
 
 import LocaleSwitcher from "../components/LocaleSwitcher";
-import Footer from "../components/Footer";
 import Link from "../components/Link";
+import Image from "next/image";
+import EnderLogo from "../public/vectors/ender.svg";
 
-const Title = styled.h1`
-  font-size: var(--text-size);
-  font-weight: 600;
-  display: inline-block;
-`;
-
-const Subtitle = styled.span`
-  font-size: var(--text-size);
-  font-style: italic;
-  padding-left: 0.5rem;
-  margin-left: 0.5rem;
-  border-left: 1px solid var(--low-contrast-color);
-  font-family: var(--font-family-serif);
-`;
-
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["common"])),
-    },
-  };
-}
-
-/* Now playing block that fades in once data is populated from LastFM */
 const NowPlaying = () => {
-  const { t } = useTranslation("common");
   const [music, setMusic] = useState(false);
 
   useEffect(() => {
@@ -54,20 +27,21 @@ const NowPlaying = () => {
   return (
     <>
       {music && (
-        <p className={"animated-fadeup"}>
+        <p className="mt-3 animated-fadeup anim-delay-2">
           {music.artist["#text"].includes("Taylor Swift") ? (
             <span>
-              {t("now_playing_ts.0")}
-              <i>{music["name"]}</i>
-              {t("now_playing_ts.1")}
+              I listen to Taylor Swift a lot. In fact, my most recently played
+              song is
+              <i>{music["name"]}</i>.
             </span>
           ) : (
             <span>
-              {t("now_playing.0")}
-              <i>{music["name"]}</i>
-              {t("now_playing.1")}
-              {music["artist"]["#text"]}
-              {t("now_playing.2")}
+              My most recently played song is{" "}
+              <i className="text-matcha font-semibold">{music["name"]}</i> by{" "}
+              <span className="text-matcha font-semibold">
+                {music["artist"]["#text"]}
+              </span>
+              . But rest assured: I still listen to Taylor Swift a lot.
             </span>
           )}
         </p>
@@ -77,47 +51,49 @@ const NowPlaying = () => {
 };
 
 const Home = () => {
-  const { t } = useTranslation("common");
-
   return (
     <div>
       <Head>
-        <title>{t("full_name")} | @itsmingjie</title>
+        <title>Mingjie Jiang | @itsmingjie</title>
         <meta
           name="description"
           content="Building inclusive & accessible CS exploration programs for everyone."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={"animated-fadeup"}>
-        <Title>{t("full_name")}</Title>
-        <Subtitle>{t("mission")}</Subtitle>
+      <div className="flex justify-between animated-fadeup">
+        <div className="font-bold">Mingjie Jiang</div>
+        <Link href="https://twitter.com/itsmingjie" external>
+          <div className="font-serif text-coral font-bold">@itsmingjie</div>
+        </Link>
       </div>
-      <div className={"animated-fadeup anim-delay-1"}>
-        <LocaleSwitcher />
-      </div>
-      <div className={"animated-fadeup anim-delay-2"}>
+      <div className="mt-5 animated-fadeup anim-delay-2">
         <p>
-          {t("home_p1.0")}
-          <Link href="https://mingjie.dev" external>
-            [uwuwu]
-          </Link>
-          {t("home_p1.1")}
-          <Link href="https://executebig.org" external>
-            Execute Big
-          </Link>
-          {t("home_p1.2")}
-        </p>
-        <p>
+          Learner & builder focusing on education. Kind of dropped out
           <Link
-            href="https://mingjie.notion.site/My-Education-0f2357cdd6574dfcaf953dd650a35dfc"
+            href="https://twitter.com/itsmingjie/status/1480692863067295748"
             external
           >
-            {t("home_p2.0")}
-          </Link>
-          {t("home_p2.1")}
+            <div className="inline text-coral">*</div>
+          </Link>{" "}
+          from UC Berkeley CS at the moment. Currently working at
+          <div className="inline mx-2">
+            <Link href="https://joinender.com" external>
+              <EnderLogo className="w-5 h-5 inline align-text-bottom fill-coral mr-1" />
+              <div className="inline font-bold text-coral">Ender</div>
+            </Link>
+          </div>
+          &mdash; building what I have always wanted in education for the next
+          generation of creative kids who love to build.
         </p>
         <NowPlaying />
+        <p className="animated-fadeup anim-delay-3 mt-3 text-hint-1 font-serif italic">
+          A work in progress website. In the meantime, you should check out{" "}
+          <Link href="https://mingjie.notion.site/" external>
+            <div className="text-coral inline">things I wrote about</div>
+          </Link>
+          .
+        </p>
       </div>
     </div>
   );
