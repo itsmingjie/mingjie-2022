@@ -8,9 +8,13 @@ module.exports = {
       transparent: "transparent",
       current: "currentColor",
       white: "#ffffff",
+      black: "#000000",
       yellow: "#F6BD60",
       linen: "#F7EDE2",
       pink: "#F5CAC3",
+      ender: {
+        green: "#00FF47",
+      },
       matcha: "#84A59D",
       coral: "#F28482",
       dark: "#302f32",
@@ -30,6 +34,9 @@ module.exports = {
       base: ["15px", "24px"],
       lg: ["20px", "28px"],
       xl: ["24px", "32px"],
+    },
+    backgroundImage: {
+      "ender-splash": "url('/ender-splash.png')",
     },
   },
   plugins: [],

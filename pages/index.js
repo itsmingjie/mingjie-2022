@@ -6,7 +6,7 @@ import Link from "../components/Link";
 import Image from "next/image";
 import EnderLogo from "../public/vectors/ender.svg";
 
-const NowPlaying = () => {
+const NowPlaying = ({ isEnderTheme }) => {
   const [music, setMusic] = useState(false);
 
   useEffect(() => {
@@ -37,8 +37,19 @@ const NowPlaying = () => {
           ) : (
             <span>
               My most recently played song is{" "}
-              <i className="text-matcha font-semibold">{music["name"]}</i> by{" "}
-              <span className="text-matcha font-semibold">
+              <i
+                className={`font-semibold ${
+                  isEnderTheme ? "text-ender-green" : "text-matcha"
+                }`}
+              >
+                {music["name"]}
+              </i>{" "}
+              by{" "}
+              <span
+                className={`font-semibold ${
+                  isEnderTheme ? "text-ender-green" : "text-matcha"
+                }`}
+              >
                 {music["artist"]["#text"]}
               </span>
               . But rest assured: I still listen to Taylor Swift a lot.
@@ -49,7 +60,7 @@ const NowPlaying = () => {
         <>
           <svg
             role="status"
-            className="mt-3 w-5 h-5 text-pink animate-spin dark:text-pink fill-coral"
+            className="w-5 h-5 mt-3 text-pink animate-spin dark:text-pink fill-coral"
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -70,6 +81,30 @@ const NowPlaying = () => {
 };
 
 const Home = () => {
+  const [isEnderTheme, setIsEnderTheme] = useState(false);
+
+  const setGlobalEnderTheme = (state) => {
+    if (state) {
+      document.body.classList.remove("bg-linen");
+      document.body.classList.add(
+        "bg-ender-splash",
+        "bg-cover",
+        "bg-center",
+        "bg-no-repeat"
+      );
+      setIsEnderTheme(true);
+    } else {
+      document.body.classList.remove(
+        "bg-ender-splash",
+        "bg-cover",
+        "bg-center",
+        "bg-no-repeat"
+      );
+      document.body.classList.add("bg-linen");
+      setIsEnderTheme(false);
+    }
+  };
+
   return (
     <div>
       <Head>
@@ -80,39 +115,80 @@ const Home = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex justify-between">
-        <div className="font-bold">Mingjie Jiang</div>
-        <Link href="https://twitter.com/itsmingjie" external>
-          <div className="font-serif text-coral font-bold">@itsmingjie</div>
-        </Link>
-      </div>
-      <div className="mt-5">
-        <p>
-          Learner & builder focusing on education. Kind of dropped out
-          <Link
-            href="https://twitter.com/itsmingjie/status/1480692863067295748"
-            external
-          >
-            <div className="inline text-coral">*</div>
-          </Link>{" "}
-          from UC Berkeley CS at the moment. Currently working at
-          <div className="inline mx-2">
-            <Link href="https://joinender.com" external>
-              <EnderLogo className="w-5 h-5 inline align-text-bottom fill-coral mr-1" />
-              <div className="inline font-bold text-coral">Ender</div>
-            </Link>
-          </div>
-          &mdash; helping to build what I would&rsquo;ve wanted in education for
-          the next generation of creative kids who love to build.
-        </p>
-        <NowPlaying />
-        <p className="mt-3 text-hint-1 font-serif italic">
-          A work in progress website. In the meantime, you should check out{" "}
-          <Link href="https://mingjie.notion.site/" external>
-            <div className="text-coral inline">things I wrote about</div>
+
+      <div
+        className={`max-w-[640px] ${
+          isEnderTheme
+            ? `bg-black text-white shadow-white/20 border-2 border-ender-green`
+            : `bg-gradient-to-br from-pink/10 to-pink/5 shadow-pink/20 hover:shadow-pink/30 shadow-lg hover:shadow-md`
+        } p-5 rounded-lg ease-in-out duration-500`}
+      >
+        <div className="flex justify-between">
+          <div className="font-bold">Mingjie Jiang</div>
+          <Link href="https://twitter.com/itsmingjie" external>
+            <div
+              className={`font-bold ${
+                isEnderTheme ? "text-ender-green" : "text-coral"
+              }`}
+            >
+              @itsmingjie
+            </div>
           </Link>
-          .
-        </p>
+        </div>
+        <div className="mt-5">
+          <p>
+            Learner & builder focusing on education. Kind of dropped out
+            <Link
+              href="https://twitter.com/itsmingjie/status/1480692863067295748"
+              external
+            >
+              <div
+                className={`inline ${
+                  isEnderTheme ? "text-ender-green" : "text-coral"
+                }`}
+              >
+                *
+              </div>
+            </Link>{" "}
+            from UC Berkeley CS at the moment. Currently working at
+            <div
+              className={`inline mx-2 ${isEnderTheme && "animate-pulse"}`}
+              onMouseEnter={() => setGlobalEnderTheme(true)}
+              onMouseLeave={() => setGlobalEnderTheme(false)}
+            >
+              <Link href="https://joinender.com" external>
+                <EnderLogo
+                  className={`inline w-5 h-5 mr-1 align-text-bottom ${
+                    isEnderTheme ? "fill-ender-green" : "fill-coral"
+                  }`}
+                />
+                <div
+                  className={`inline font-bold ${
+                    isEnderTheme ? "text-ender-green" : "text-coral"
+                  }`}
+                >
+                  Ender
+                </div>
+              </Link>
+            </div>
+            &mdash; helping to build what I would&rsquo;ve wanted in education
+            for the next generation of creative kids who love to build.
+          </p>
+          <NowPlaying isEnderTheme={isEnderTheme} />
+          <p className="mt-3 font-serif italic text-hint-1">
+            A work in progress website. In the meantime, you should check out{" "}
+            <Link href="https://mingjie.notion.site/" external>
+              <div
+                className={`inline ${
+                  isEnderTheme ? "text-ender-green" : "text-coral"
+                }`}
+              >
+                things I wrote about
+              </div>
+            </Link>
+            .
+          </p>
+        </div>
       </div>
     </div>
   );
