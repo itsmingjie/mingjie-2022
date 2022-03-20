@@ -97,14 +97,14 @@ const Home = () => {
         </div>
         <div className="mt-5">
           <p>
-            Learner & builder focusing on education. Kind of dropped out
+            Learner & builder focusing on education. Dropped out
             <Link
               href="https://twitter.com/itsmingjie/status/1480692863067295748"
               external
             >
               <div className="inline text-coral">*</div>
             </Link>{" "}
-            from UC Berkeley CS at the moment. Currently working at
+            from UC Berkeley CS to work at
             <div className={`inline mx-2`}>
               <Link href="https://joinender.com" external>
                 <EnderLogo className="inline w-5 h-5 mr-1 align-text-bottom fill-dark" />
