@@ -1,9 +1,18 @@
 // implementation inspired by @pacocoursey
 // https://github.com/pacocoursey/paco/blob/master/components/link/index.js
 
-import NextLink from "next/link";
+import NextLink from 'next/link';
 
-export default function Link({
+interface Props {
+  href: string;
+  external?: boolean;
+  as?: string;
+  passHref?: boolean;
+  className?: string;
+  children: React.ReactNode;
+}
+
+export const Link = ({
   external,
   as,
   href,
@@ -11,14 +20,14 @@ export default function Link({
   className,
   children,
   ...props
-}) {
+}: Props) => {
   if (external) {
     return (
       <a
         className={className}
         href={href}
-        target="_blank"
-        rel="noopener noreferrer"
+        target='_blank'
+        rel='noopener noreferrer'
         {...props}
       >
         {children}
@@ -39,4 +48,4 @@ export default function Link({
       </NextLink>
     </>
   );
-}
+};
