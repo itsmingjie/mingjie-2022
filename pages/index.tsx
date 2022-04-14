@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { useState, useEffect } from 'react';
 
 import { Link } from '../components/link';
 import EnderLogo from '../public/vectors/ender.svg';
@@ -7,54 +6,7 @@ import CalHacksLogo from '../public/vectors/calhacks.svg';
 import CodeDayLogo from '../public/vectors/codeday.svg';
 import ExecuteBigLogo from '../public/vectors/executebig.svg';
 import TwitterIcon from '../public/vectors/twitter.svg';
-import { Spinner } from '../components/spinner';
-
-const NowPlaying = () => {
-  const [music, setMusic] = useState<any>();
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    // call lastfm recently played
-    const lastfm_response = await fetch(
-      `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=mingjie66&api_key=${process.env.NEXT_PUBLIC_LASTFM_API_KEY}&format=json&limit=1`
-    );
-    const lastfm_data = await lastfm_response.json();
-    if (!lastfm_data.error) {
-      setMusic(lastfm_data['recenttracks']['track'][0]);
-      console.log(lastfm_data['recenttracks']['track'][0]);
-    }
-  };
-
-  return (
-    <>
-      {music ? (
-        <p className='mt-3'>
-          {music.artist['#text'].includes('Taylor Swift') ? (
-            <span>
-              I listen to Taylor Swift a lot. In fact, my most recently played
-              song is{' '}
-              <i className='font-semibold text-matcha'>{music['name']}</i>.
-            </span>
-          ) : (
-            <span>
-              My most recently played song is{' '}
-              <i className='font-semibold text-matcha'>{music['name']}</i> by{' '}
-              <span className='font-semibold text-matcha'>
-                {music['artist']['#text']}
-              </span>
-              . But rest assured: I still listen to Taylor Swift a lot.
-            </span>
-          )}
-        </p>
-      ) : (
-        <Spinner />
-      )}
-    </>
-  );
-};
+import { NowPlaying } from '../components/pages/home/now-playing';
 
 const Home = () => {
   return (
