@@ -1,6 +1,6 @@
 import { Spinner } from '../../../../design-system/components/spinner';
 import useSWR, { type Fetcher } from 'swr';
-import { List } from '../list';
+import { List } from '../../../../design-system/components/list';
 
 const fetchMusic: Fetcher<any[]> = () =>
   fetch('/api/now-playing').then((res) => res.json());

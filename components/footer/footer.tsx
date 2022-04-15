@@ -7,7 +7,7 @@ export const Footer = () => {
     <FooterContainer>
       <FooterLeft>&copy; {currentYear} Mingjie Jiang</FooterLeft>
 
-      <FooterRight>... in Austin, TX</FooterRight>
+      <FooterRight>Built in Austin, TX.</FooterRight>
     </FooterContainer>
   );
 };

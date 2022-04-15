@@ -1,18 +1,16 @@
 import Head from 'next/head';
 
-import {
-  NowPlaying,
-  Paragraph,
-  RecentPosts,
-  Section,
-} from '../components/pages/home';
+import { NowPlaying, RecentPosts } from '../components/pages/home';
 import { Header } from '../components/header';
 import Link from 'next/link';
 import { getDatabase } from '../libs/notion';
+import { Paragraph } from '../design-system/components/paragraph';
+import { SingleLayout } from '../design-system/layouts/single-layout';
+import { Section } from '../design-system/components/section';
 
 const Home = ({ posts }: { posts: any[] }) => {
   return (
-    <>
+    <SingleLayout>
       <Head>
         <title>Mingjie Jiang</title>
         <meta
@@ -25,10 +23,16 @@ const Home = ({ posts }: { posts: any[] }) => {
       <Header title='Mingjie Jiang' subtitle='Software & Product Engineer' />
 
       <Paragraph>
-        Learner & builder focusing on education. Dropped out from UC Berkeley CS
-        to help build <Link href='https://joinender.com'>Ender</Link>, crafting
-        what I would&rsquo;ve wanted in education for the next generation of
-        creative kids who love to build.
+        Learner & builder focusing on education. Immigrant born and raised in
+        Shanghai, China. Dropped out from UC Berkeley CS to help build{' '}
+        <Link href='https://joinender.com'>Ender</Link>, crafting what I
+        would&rsquo;ve wanted in education for the next generation of creative
+        kids who love to build.
+      </Paragraph>
+
+      <Paragraph>
+        You might be interested some interesting{' '}
+        <Link href='/spellings'>spellings</Link> of my name.
       </Paragraph>
 
       <Section title='Other Involvements'>
@@ -54,7 +58,7 @@ const Home = ({ posts }: { posts: any[] }) => {
       <Section title='Recently Played'>
         <NowPlaying />
       </Section>
-    </>
+    </SingleLayout>
   );
 };
 

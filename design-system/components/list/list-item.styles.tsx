@@ -1,4 +1,4 @@
-import { styled } from '../../../../design-system';
+import { styled } from '../..';
 
 export const ListItemContainer = styled('div', {
   display: 'flex',
@@ -21,4 +21,5 @@ export const ListItemRight = styled('div', {
   whiteSpace: 'nowrap',
   minWidth: 0,
   fontStyle: 'italic',
+  color: '$hint',
 });

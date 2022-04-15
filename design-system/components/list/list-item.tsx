@@ -9,7 +9,7 @@ import {
 interface Props {
   left: string;
   right: string;
-  url: string;
+  url?: string;
 }
 
 export const ListItem = ({ left, right, url }: Props) => (

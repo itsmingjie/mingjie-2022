@@ -1,4 +1,4 @@
-import { styled } from '../../../../design-system';
+import { styled } from '../..';
 
 export const ListWrapper = styled('div', {
   display: 'flex',

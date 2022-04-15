@@ -1,4 +1,4 @@
-import { styled } from '../../../../design-system';
+import { styled } from '../..';
 
 export const SectionContainer = styled('div', {
   marginTop: '3rem',

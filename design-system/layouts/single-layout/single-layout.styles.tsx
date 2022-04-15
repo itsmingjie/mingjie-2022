@@ -1,4 +1,4 @@
-import { styled } from '../../design-system';
+import { styled } from '../..';
 
 export const ContentContainer = styled('div', {
   'display': 'flex',
