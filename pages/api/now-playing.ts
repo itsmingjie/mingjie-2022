@@ -1,7 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 const LASTFM_API_KEY = process.env.LASTFM_API_KEY;
-const ENDPOINT_URL = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=mingjie66&api_key=${LASTFM_API_KEY}&format=json&limit=4`;
+const NUM_RESULTS = 5;
+const ENDPOINT_URL = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=mingjie66&api_key=${LASTFM_API_KEY}&format=json&limit=${NUM_RESULTS}`;
 
 export default async function nowPlaying(
   req: NextApiRequest,

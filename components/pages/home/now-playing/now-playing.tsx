@@ -1,23 +1,20 @@
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
 import { Spinner } from '../../../../design-system/components/spinner';
-import { EmphasizedText, NowPlayingContainer } from './now-playing.styles';
+import { NowPlayingContainer } from './now-playing.styles';
 import { Track } from './track';
+import useSWR, { type Fetcher } from 'swr';
+
+const fetchMusic: Fetcher<any[]> = () =>
+  fetch('/api/now-playing').then((res) => res.json());
 
 export const NowPlaying = () => {
-  const [music, setMusic] = useState<any[]>([]);
+  const { data, error } = useSWR(['now-playing'], fetchMusic);
 
-  useEffect(() => {
-    fetch('/api/now-playing')
-      .then((res) => res.json())
-      .then((data) => {
-        setMusic(data);
-      });
-  }, []);
+  if (error) return <></>;
+  if (!data) return <Spinner />;
 
   return (
     <NowPlayingContainer>
-      {music.map((track) => (
+      {data.map((track: any) => (
         <Track
           key={track.id}
           name={track.name}
