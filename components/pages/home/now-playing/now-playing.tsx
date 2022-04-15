@@ -1,41 +1,26 @@
-import { useState, useEffect } from 'react';
-import { Spinner } from '../../../spinner';
+import { Spinner } from '../../../../design-system/components/spinner';
+import useSWR, { type Fetcher } from 'swr';
+import { List } from '../../../../design-system/components/list';
+
+const fetchMusic: Fetcher<any[]> = () =>
+  fetch('/api/now-playing').then((res) => res.json());
 
 export const NowPlaying = () => {
-  const [music, setMusic] = useState<any>();
+  const { data, error } = useSWR(['now-playing'], fetchMusic);
 
-  useEffect(() => {
-    fetch('/api/now-playing')
-      .then((res) => res.json())
-      .then((data) => {
-        setMusic(data);
-      });
-  }, []);
+  if (error) return <></>;
+  if (!data) return <Spinner />;
 
   return (
-    <>
-      {music ? (
-        <p className='mt-3'>
-          {music.artist['#text'].includes('Taylor Swift') ? (
-            <span>
-              I listen to Taylor Swift a lot. In fact, my most recently played
-              song is{' '}
-              <i className='font-semibold text-matcha'>{music['name']}</i>.
-            </span>
-          ) : (
-            <span>
-              My most recently played song is{' '}
-              <i className='font-semibold text-matcha'>{music['name']}</i> by{' '}
-              <span className='font-semibold text-matcha'>
-                {music['artist']['#text']}
-              </span>
-              . But rest assured: I still listen to Taylor Swift a lot.
-            </span>
-          )}
-        </p>
-      ) : (
-        <Spinner />
-      )}
-    </>
+    <List.Container>
+      {data.map((track: any) => (
+        <List.Item
+          key={track.id}
+          left={track.name}
+          right={track.artist['#text']}
+          url={track.url}
+        />
+      ))}
+    </List.Container>
   );
 };
