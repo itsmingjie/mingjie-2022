@@ -22,6 +22,8 @@
     "importsNotUsedAsValues": "error",
     "preserveValueImports": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   }
 }

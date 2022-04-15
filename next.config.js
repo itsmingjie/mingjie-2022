@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   webpack(config) {
     config.module.rules.push({
@@ -12,7 +10,7 @@ module.exports = {
   },
   reactStrictMode: true,
   trailingSlash: true,
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
+  images: {
+    domains: ['lastfm.freetls.fastly.net'],
   },
 };
