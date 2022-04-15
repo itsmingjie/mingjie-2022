@@ -1,4 +1,4 @@
-import { Link } from '../../../../design-system/components/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import {
   TrackArtist,

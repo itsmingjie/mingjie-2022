@@ -1,4 +1,4 @@
-import { Link } from '../../../../design-system/components/link';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Spinner } from '../../../../design-system/components/spinner';
 import { EmphasizedText, NowPlayingContainer } from './now-playing.styles';

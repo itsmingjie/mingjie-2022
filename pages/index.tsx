@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import { NowPlaying, Paragraph, Section } from '../components/pages/home';
 import { Header } from '../components/header';
-import { Link } from '../design-system/components/link';
+import Link from 'next/link';
 
 const Home = () => {
   return (
