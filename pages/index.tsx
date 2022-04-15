@@ -20,7 +20,7 @@ const Home = ({ posts }: { posts: any[] }) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <Header title='Mingjie Jiang' subtitle='Software & Product Engineer' />
+      <Header title='Mingjie Jiang' subtitle='Web & Product Engineer' />
 
       <Paragraph>
         Learner & builder focusing on education. Immigrant born and raised in
