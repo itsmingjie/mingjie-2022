@@ -1,8 +1,11 @@
+import { Link } from '../../../../design-system/components/link';
 import { useState, useEffect } from 'react';
-import { Spinner } from '../../../spinner';
+import { Spinner } from '../../../../design-system/components/spinner';
+import { EmphasizedText, NowPlayingContainer } from './now-playing.styles';
+import { Track } from './track';
 
 export const NowPlaying = () => {
-  const [music, setMusic] = useState<any>();
+  const [music, setMusic] = useState<any[]>([]);
 
   useEffect(() => {
     fetch('/api/now-playing')
@@ -13,29 +16,15 @@ export const NowPlaying = () => {
   }, []);
 
   return (
-    <>
-      {music ? (
-        <p className='mt-3'>
-          {music.artist['#text'].includes('Taylor Swift') ? (
-            <span>
-              I listen to Taylor Swift a lot. In fact, my most recently played
-              song is{' '}
-              <i className='font-semibold text-matcha'>{music['name']}</i>.
-            </span>
-          ) : (
-            <span>
-              My most recently played song is{' '}
-              <i className='font-semibold text-matcha'>{music['name']}</i> by{' '}
-              <span className='font-semibold text-matcha'>
-                {music['artist']['#text']}
-              </span>
-              . But rest assured: I still listen to Taylor Swift a lot.
-            </span>
-          )}
-        </p>
-      ) : (
-        <Spinner />
-      )}
-    </>
+    <NowPlayingContainer>
+      {music.map((track) => (
+        <Track
+          key={track.id}
+          name={track.name}
+          artist={track.artist['#text']}
+          url={track.url}
+        />
+      ))}
+    </NowPlayingContainer>
   );
 };
