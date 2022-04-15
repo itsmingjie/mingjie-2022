@@ -1,3 +1,4 @@
+import { Footer } from '../footer';
 import { ContentContainer } from './layout.styles';
 
 interface Props {
@@ -5,5 +6,10 @@ interface Props {
 }
 
 export const Layout = ({ children }: Props) => (
-  <ContentContainer>{children}</ContentContainer>
+  <>
+    <ContentContainer>
+      {children}
+      <Footer />
+    </ContentContainer>
+  </>
 );

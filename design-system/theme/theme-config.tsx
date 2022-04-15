@@ -27,6 +27,7 @@ export const { styled, css, globalCss, keyframes, theme, getCssText } =
         sans: '"IBM Plex Sans", system-ui, sans-serif',
         serif: '"IBM Plex Serif", Times, serif',
         mono: '"IBM Plex Mono", monospace',
+        condensed: '"IBM Plex Sans Condensed", system-ui, sans-serif',
       },
       fontWeights: {},
       lineHeights: {},

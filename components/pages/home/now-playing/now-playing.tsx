@@ -1,7 +1,6 @@
 import { Spinner } from '../../../../design-system/components/spinner';
-import { NowPlayingContainer } from './now-playing.styles';
-import { Track } from './track';
 import useSWR, { type Fetcher } from 'swr';
+import { List } from '../list';
 
 const fetchMusic: Fetcher<any[]> = () =>
   fetch('/api/now-playing').then((res) => res.json());
@@ -13,15 +12,15 @@ export const NowPlaying = () => {
   if (!data) return <Spinner />;
 
   return (
-    <NowPlayingContainer>
+    <List.Container>
       {data.map((track: any) => (
-        <Track
+        <List.Item
           key={track.id}
-          name={track.name}
-          artist={track.artist['#text']}
+          left={track.name}
+          right={track.artist['#text']}
           url={track.url}
         />
       ))}
-    </NowPlayingContainer>
+    </List.Container>
   );
 };

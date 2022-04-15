@@ -1,10 +1,16 @@
 import Head from 'next/head';
 
-import { NowPlaying, Paragraph, Section } from '../components/pages/home';
+import {
+  NowPlaying,
+  Paragraph,
+  RecentPosts,
+  Section,
+} from '../components/pages/home';
 import { Header } from '../components/header';
 import Link from 'next/link';
+import { getDatabase } from '../libs/notion';
 
-const Home = () => {
+const Home = ({ posts }: { posts: any[] }) => {
   return (
     <>
       <Head>
@@ -41,11 +47,27 @@ const Home = () => {
         </Paragraph>
       </Section>
 
+      <Section title='Journals'>
+        <RecentPosts posts={posts} />
+      </Section>
+
       <Section title='Recently Played'>
         <NowPlaying />
       </Section>
     </>
   );
+};
+
+export const getStaticProps = async () => {
+  const databaseId = process.env.NOTION_BLOG_DB as string;
+  const database = await getDatabase(databaseId);
+
+  return {
+    props: {
+      posts: database.slice(0, 5),
+    },
+    revalidate: 1, // In seconds
+  };
 };
 
 export default Home;

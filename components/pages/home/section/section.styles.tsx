@@ -1,7 +1,7 @@
 import { styled } from '../../../../design-system';
 
 export const SectionContainer = styled('div', {
-  marginTop: '4rem',
+  marginTop: '3rem',
 });
 
 export const SectionHeader = styled('h2', {
