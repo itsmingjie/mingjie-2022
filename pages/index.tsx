@@ -1,5 +1,3 @@
-import Head from 'next/head';
-
 import { NowPlaying, RecentPosts } from '../components/pages/home';
 import { Header } from '../components/header';
 import Link from 'next/link';
@@ -7,7 +5,7 @@ import { getDatabase } from '../libs/notion';
 import { Paragraph } from '../design-system/components/paragraph';
 import { SingleLayout } from '../design-system/layouts/single-layout';
 import { Section } from '../design-system/components/section';
-import { Meta } from '../design-system/components/meta';
+import { Meta } from '../design-system/utils/meta';
 
 const Home = ({ posts }: { posts: any[] }) => {
   return (

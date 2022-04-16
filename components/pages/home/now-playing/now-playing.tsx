@@ -13,9 +13,9 @@ export const NowPlaying = () => {
 
   return (
     <List.Container>
-      {data.map((track: any) => (
+      {data.map((track: any, index: number) => (
         <List.Item
-          key={track.id}
+          key={index}
           left={track.name}
           right={track.artist['#text']}
           url={track.url}

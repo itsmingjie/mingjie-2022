@@ -1,7 +1,6 @@
-import Head from 'next/head';
 import { Header } from '../components/header';
 import { List } from '../design-system/components/list';
-import { Meta } from '../design-system/components/meta';
+import { Meta } from '../design-system/utils/meta';
 import { Paragraph } from '../design-system/components/paragraph';
 import { Section } from '../design-system/components/section';
 import { SidebarNavigation } from '../design-system/components/sidebar-navigation';

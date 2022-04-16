@@ -1,5 +1,6 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 import { ThemeStyles } from '../design-system';
+import { Insights } from '../design-system/utils/insights';
 
 export default function Document() {
   return (
@@ -11,6 +12,7 @@ export default function Document() {
         />
         <ThemeStyles />
         <link rel='icon' href='/favicon.ico' />
+        <Insights />
       </Head>
       <body>
         <Main />
