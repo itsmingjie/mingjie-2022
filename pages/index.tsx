@@ -7,18 +7,12 @@ import { getDatabase } from '../libs/notion';
 import { Paragraph } from '../design-system/components/paragraph';
 import { SingleLayout } from '../design-system/layouts/single-layout';
 import { Section } from '../design-system/components/section';
+import { Meta } from '../design-system/components/meta';
 
 const Home = ({ posts }: { posts: any[] }) => {
   return (
     <SingleLayout>
-      <Head>
-        <title>Mingjie Jiang</title>
-        <meta
-          name='description'
-          content='Building inclusive & accessible CS exploration programs for everyone.'
-        />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+      <Meta />
 
       <Header title='Mingjie Jiang' subtitle='Web & Product Engineer' />
 

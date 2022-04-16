@@ -10,6 +10,7 @@ export default function Document() {
           rel='stylesheet'
         />
         <ThemeStyles />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <body>
         <Main />
