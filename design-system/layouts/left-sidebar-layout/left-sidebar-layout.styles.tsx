@@ -22,6 +22,10 @@ export const SidebarContainer = styled('div', {
 });
 
 export const ContentContainer = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
+  'display': 'flex',
+  'flexDirection': 'column',
+
+  '@media (min-width: 768px)': {
+    maxWidth: 612,
+  },
 });

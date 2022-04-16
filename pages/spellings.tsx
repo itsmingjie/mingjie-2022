@@ -1,5 +1,7 @@
+import Head from 'next/head';
 import { Header } from '../components/header';
 import { List } from '../design-system/components/list';
+import { Meta } from '../design-system/components/meta';
 import { Paragraph } from '../design-system/components/paragraph';
 import { Section } from '../design-system/components/section';
 import { SidebarNavigation } from '../design-system/components/sidebar-navigation';
@@ -7,6 +9,11 @@ import { LeftSidebarLayout } from '../design-system/layouts/left-sidebar-layout'
 
 const Spellings = () => (
   <LeftSidebarLayout sidebar={<SidebarNavigation text='Home' url='/' />}>
+    <Meta
+      title='Spellings'
+      description='Showcasing my favorite attempts of spelling my name'
+    />
+
     <Header
       title='(Mis)spellings'
       subtitle='Showcasing my favorite attempts of spelling my name'
