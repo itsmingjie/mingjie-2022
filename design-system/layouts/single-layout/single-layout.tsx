@@ -1,7 +1,7 @@
 import { Footer } from '../../../components/footer';
 import { ContentContainer } from './single-layout.styles';
 import { motion } from 'framer-motion';
-import { PageTransitionVariants } from '../../framer/variants';
+import { PageTransitionVariants } from '../../animations';
 
 interface Props {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-import { keyframes } from '../';
+import { keyframes } from '../..';
 
 export const spin = keyframes({
   from: {

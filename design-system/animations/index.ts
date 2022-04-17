@@ -1,1 +1,2 @@
-export * from './spin';
+export * from './keyframe/spin';
+export * from './framer/variants';

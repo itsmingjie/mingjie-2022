@@ -4,10 +4,7 @@ import {
   SidebarContainer,
 } from './left-sidebar-layout.styles';
 import { motion } from 'framer-motion';
-import {
-  LeftSidebarVariants,
-  PageTransitionVariants,
-} from '../../framer/variants';
+import { LeftSidebarVariants, PageTransitionVariants } from '../../animations';
 import { Footer } from '../../../components/footer';
 
 interface Props {
