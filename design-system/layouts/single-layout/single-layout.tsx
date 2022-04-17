@@ -1,5 +1,7 @@
 import { Footer } from '../../../components/footer';
 import { ContentContainer } from './single-layout.styles';
+import { motion } from 'framer-motion';
+import { PageTransitionVariants } from '../../framer/variants';
 
 interface Props {
   children: React.ReactNode;
@@ -8,8 +10,16 @@ interface Props {
 export const SingleLayout = ({ children }: Props) => (
   <>
     <ContentContainer>
-      {children}
-      <Footer />
+      <motion.main
+        variants={PageTransitionVariants}
+        initial='hidden'
+        animate='enter'
+        exit='exit'
+        key='main'
+      >
+        {children}
+        <Footer />
+      </motion.main>
     </ContentContainer>
   </>
 );
