@@ -1,0 +1,18 @@
+version: '3.6'
+services:
+  site:
+    image: site
+    container_name: site
+    command: npm run dev
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 3001:3001
+    volumes:
+      - .:/home/node/app
+      - /home/node/app/node_modules
+      - /home/node/app/.next
+    env_file:
+      - ./.env
