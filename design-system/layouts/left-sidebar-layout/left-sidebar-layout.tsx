@@ -12,30 +12,30 @@ interface Props {
   children: React.ReactNode;
 }
 
-export const LeftSidebarLayout = ({ sidebar, children }: Props) => (
-  <LayoutContainer>
-    <SidebarContainer>
-      <motion.aside
-        variants={LeftSidebarVariants}
-        initial='hidden'
-        animate='enter'
-        exit='exit'
-        key='sidebar'
-      >
-        {sidebar}
-      </motion.aside>
-    </SidebarContainer>
-    <ContentContainer>
-      <motion.main
-        variants={PageTransitionVariants}
-        initial='hidden'
-        animate='enter'
-        exit='exit'
-        key='main'
-      >
-        {children}
-        <Footer />
-      </motion.main>
-    </ContentContainer>
-  </LayoutContainer>
-);
+export const LeftSidebarLayout = ({ sidebar, children }: Props) => {
+  return (
+    <LayoutContainer>
+      <SidebarContainer>
+        <motion.aside
+          variants={LeftSidebarVariants}
+          animate='enter'
+          key='sidebar'
+        >
+          {sidebar}
+        </motion.aside>
+      </SidebarContainer>
+      <ContentContainer>
+        <motion.main
+          variants={PageTransitionVariants}
+          initial='hidden'
+          animate='enter'
+          exit='exit'
+          key='main'
+        >
+          {children}
+          <Footer />
+        </motion.main>
+      </ContentContainer>
+    </LayoutContainer>
+  );
+};

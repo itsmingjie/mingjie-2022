@@ -13,4 +13,13 @@ module.exports = {
   images: {
     domains: ['lastfm.freetls.fastly.net'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/notes',
+        destination: '/notes/Notes%20-%20Home/',
+        permanent: false,
+      },
+    ];
+  },
 };
