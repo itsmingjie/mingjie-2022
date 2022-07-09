@@ -1,5 +1,7 @@
 import { styled } from '../..';
 
 export const SidebarNavigationContainer = styled('div', {
-  fontFamily: '$condensed',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '$1',
 });

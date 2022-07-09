@@ -5,7 +5,7 @@ const NUM_RESULTS = 5;
 const ENDPOINT_URL = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=mingjie66&api_key=${LASTFM_API_KEY}&format=json&limit=${NUM_RESULTS}`;
 
 export default async function nowPlaying(
-  req: NextApiRequest,
+  _req: NextApiRequest,
   res: NextApiResponse
 ) {
   const lastfm_response = await fetch(ENDPOINT_URL);
