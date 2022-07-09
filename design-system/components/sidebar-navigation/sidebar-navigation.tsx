@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Section } from '../section';
 import { SidebarNavigationContainer } from './sidebar-navigation.styles';
 
 interface Props {

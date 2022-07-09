@@ -6,7 +6,6 @@ import {
 import { motion } from 'framer-motion';
 import { LeftSidebarVariants, PageTransitionVariants } from '../../animations';
 import { Footer } from '../../../components/footer';
-import { useRouter } from 'next/router';
 
 interface Props {
   sidebar: React.ReactNode;

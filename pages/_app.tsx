@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-import { PageTransitionVariants } from '../design-system/animations';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
