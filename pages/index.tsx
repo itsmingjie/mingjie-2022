@@ -27,7 +27,12 @@ const Home = ({ posts }: { posts: any[] }) => {
         <Link href='/spellings'>spellings</Link> of my name.
       </Paragraph>
 
-      <Section title='Other Involvements'>
+      <Section title='Notes'>
+        I manage my knowledge in Obsidian, and some of them is public.{' '}
+        <Link href={'/notes/Notes - Home'}>See my notes &rarr;</Link>
+      </Section>
+
+      {/* <Section title='Other Involvements'>
         <Paragraph>
           Executive Director of{' '}
           <Link href='https://calhacks.io'>Cal Hacks</Link> (my last obligation
@@ -41,7 +46,7 @@ const Home = ({ posts }: { posts: any[] }) => {
           their journey to explore computer science, specifically tackling
           problems often neglected by larger organizations.
         </Paragraph>
-      </Section>
+      </Section> */}
 
       <Section title='Journals'>
         <RecentPosts posts={posts} />

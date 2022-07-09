@@ -1,6 +1,7 @@
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
+import { PageTransitionVariants } from '../design-system/animations';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -10,7 +11,9 @@ const App = ({ Component, pageProps }: AppProps) => {
       initial={false}
       onExitComplete={() => window.scrollTo(0, 0)}
     >
-      <Component {...pageProps} key={router.pathname} />
+      <motion.main key={router.asPath}>
+        <Component {...pageProps} key={router.pathname} />
+      </motion.main>
     </AnimatePresence>
   );
 };
