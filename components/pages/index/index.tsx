@@ -17,7 +17,13 @@ export const IndexPage = () => {
         <Section title='About'>
           <Paragraph>
             Learner & builder, crafting interactive education experiences for
-            kids at <Link href='https://joinender.com'>Ender</Link>.
+            kids at{' '}
+            <Link href='https://joinender.com' passHref>
+              <a target='_blank' rel='noopener noreferrer'>
+                Ender
+              </a>
+            </Link>
+            .
           </Paragraph>
 
           <Paragraph>
