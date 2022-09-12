@@ -1,5 +1,5 @@
-import { styled } from '../design-system';
-import { Separator as SeparatorComponent } from '../design-system/components/radix/separator';
+import { styled } from '../../../design-system';
+import { Separator as SeparatorComponent } from '../../../design-system/components/radix/separator';
 
 export const Container = styled('div', {
   display: 'flex',
