@@ -1,13 +1,15 @@
-import { FooterContainer, FooterLeft, FooterRight } from './footer.styles';
+import * as S from './footer.styles';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <FooterContainer>
-      <FooterLeft>&copy; {currentYear} Mingjie Jiang</FooterLeft>
+    <S.FooterContainer>
+      <S.FooterContent>
+        <S.FooterLeft>&copy; {currentYear} Mingjie Jiang</S.FooterLeft>
 
-      <FooterRight>Built in Austin, TX.</FooterRight>
-    </FooterContainer>
+        <S.FooterRight>Built in Austin, TX.</S.FooterRight>
+      </S.FooterContent>
+    </S.FooterContainer>
   );
 };

@@ -1,8 +1,6 @@
 import { styled } from '../..';
 
-export const SectionContainer = styled('div', {
-  marginTop: '3rem',
-});
+export const SectionContainer = styled('div', {});
 
 export const SectionHeader = styled('h2', {
   marginBottom: '1rem',
