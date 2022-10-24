@@ -1,4 +1,4 @@
-import { HeaderContainer, HeaderSubtitle, HeaderTitle } from './header.styles';
+import { HeaderContainer, HeaderSubtitle } from './header.styles';
 
 interface Props {
   title?: string;
@@ -8,7 +8,7 @@ interface Props {
 export const Header = ({ title, subtitle }: Props) => {
   return (
     <HeaderContainer>
-      <HeaderTitle>{title}</HeaderTitle>
+      <h1 className='font-sans-black text-xl text-light'>{title}</h1>
       <HeaderSubtitle>{subtitle}</HeaderSubtitle>
     </HeaderContainer>
   );
