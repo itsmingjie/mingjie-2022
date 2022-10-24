@@ -24,10 +24,10 @@ export const { styled, css, globalCss, keyframes, theme, getCssText } =
         3: '15px',
       },
       fonts: {
-        sans: '"IBM Plex Sans", system-ui, sans-serif',
-        serif: '"IBM Plex Serif", Times, serif',
+        sans: '"Archivo", system-ui, sans-serif',
+        black: '"Archivo Black", system-ui, serif',
+        narrow: '"Archivo Narrow", system-ui, sans-serif',
         mono: '"IBM Plex Mono", monospace',
-        condensed: '"IBM Plex Sans Condensed", system-ui, sans-serif',
       },
       fontWeights: {},
       lineHeights: {},
