@@ -1,21 +1,11 @@
-import '../styles/globals.css';
-
-import { AnimatePresence, motion } from 'framer-motion';
 import type { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
+import { Layout } from '../components/layout';
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const router = useRouter();
   return (
-    <AnimatePresence
-      exitBeforeEnter
-      initial={false}
-      onExitComplete={() => window.scrollTo(0, 0)}
-    >
-      <motion.main key={router.asPath}>
-        <Component {...pageProps} key={router.pathname} />
-      </motion.main>
-    </AnimatePresence>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   );
 };
 
